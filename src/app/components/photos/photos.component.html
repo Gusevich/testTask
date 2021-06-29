@@ -1,0 +1,24 @@
+<mat-grid-list cols="2">
+  <mat-grid-tile *ngFor="let photo of photos | slice: 0:10">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar><img src="{{photo.url}}" alt="photo" style="border-radius: 50%;width: 50px;height: 50px;">
+        </div>
+        <mat-card-title>Album: {{photo.albumId}}</mat-card-title>
+        <mat-card-subtitle>Photo ID: {{photo.id}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{photo.url}}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>{{photo.title}}</p>
+      </mat-card-content>
+      <div class="flex-cont">
+        <mat-card-actions *ngIf="!isStored(photo)">
+          <button mat-button (click)="storePhoto(photo)">Activate</button>
+        </mat-card-actions>
+        <mat-card-actions *ngIf="isStored(photo)">
+          <button mat-button (click)="removePhoto(photo)">Remove</button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

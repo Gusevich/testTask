@@ -1,0 +1,25 @@
+<mat-grid-list cols="3">
+  <mat-grid-tile *ngFor="let post of posts | slice: 0:10">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL5kjwxBmWj8U6-8sk9lxz3T9nPIY6ZcZ70A&usqp=CAU"
+          alt="photo" style="border-radius: 50%;width: 50px;height: 50px;"></div>
+        <mat-card-title>User ID: {{post.userId}}</mat-card-title>
+        <mat-card-title>Post ID: {{post.id}}</mat-card-title>
+        <mat-card-title>Title: {{post.title}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{post.body}}</p>
+      </mat-card-content>
+      <div class="flex-cont">
+        <mat-card-actions *ngIf="!isStored(post)">
+          <button mat-button (click)="storePost(post)">Activate</button>
+        </mat-card-actions>
+        <mat-card-actions *ngIf="isStored(post)">
+          <button mat-button (click)="removePost(post)">Remove</button>
+        </mat-card-actions>
+      </div>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

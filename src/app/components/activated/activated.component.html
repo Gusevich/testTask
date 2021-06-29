@@ -1,0 +1,47 @@
+<mat-grid-list cols="3" rowHeight="2:2.2">
+  <mat-grid-tile *ngFor="let photo of photos">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar><img src="{{photo.url}}" alt="photo" style="border-radius: 50%;width: 50px;height: 50px;">
+        </div>
+        <mat-card-title>Album: {{photo.albumId}}</mat-card-title>
+        <mat-card-subtitle>Photo ID: {{photo.id}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{photo.url}}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>{{photo.title}}</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile *ngFor="let user of users">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar><img
+          src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"
+          alt="photo" style="border-radius: 50%;width: 50px;height: 50px;"></div>
+        <mat-card-title>Name: {{user.name}}, ID: {{user.id}}</mat-card-title>
+        <mat-card-subtitle>Username: {{user.username}}</mat-card-subtitle>
+        <mat-card-subtitle>Email: {{user.email}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-subtitle>Address: {{user.address}}</mat-card-subtitle>
+      <mat-card-subtitle>User phone: {{user.phone}}</mat-card-subtitle>
+      <mat-card-subtitle>Website: {{user.website}}</mat-card-subtitle>
+      <mat-card-subtitle>Company: {{user.company.name}}</mat-card-subtitle>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile *ngFor="let post of posts">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL5kjwxBmWj8U6-8sk9lxz3T9nPIY6ZcZ70A&usqp=CAU"
+          alt="photo" style="border-radius: 50%;width: 50px;height: 50px;"></div>
+        <mat-card-title>User ID: {{post.userId}}</mat-card-title>
+        <mat-card-title>Post ID: {{post.id}}</mat-card-title>
+        <mat-card-title>Title: {{post.title}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{post.body}}</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
